@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Parking Flow - Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-badge">P</span>
+          <div>
+            <p class="brand-title">Parking Flow</p>
+            <p class="brand-subtitle">Operaciones</p>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active">Dashboard</button>
+          <button class="nav-item">Incidencias</button>
+          <button class="nav-item">Turnos</button>
+          <button class="nav-item">Historial</button>
+          <button class="nav-item">Ajustes</button>
+        </nav>
+
+        <div class="sidebar-card">
+          <p class="sidebar-title">Estado del parking</p>
+          <div class="metric">
+            <span class="metric-value">128</span>
+            <span class="metric-label">Plazas libres</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">72%</span>
+            <span class="metric-label">Ocupación</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="header">
+          <div>
+            <p class="eyebrow">Panel operativo</p>
+            <h1>Tablero de tareas</h1>
+          </div>
+          <div class="header-actions">
+            <button class="ghost-button">Exportar</button>
+            <button class="primary-button">Nuevo aviso</button>
+          </div>
+        </header>
+
+        <section class="form-section">
+          <div>
+            <h2>Registrar solicitud rápida</h2>
+            <p class="muted">
+              Añade una matrícula o tarea pendiente y envíala al tablero con un solo toque.
+            </p>
+          </div>
+          <form id="task-form" class="task-form">
+            <div class="form-field">
+              <label for="plate">Matrícula</label>
+              <input id="plate" name="plate" type="text" placeholder="Ej: 1234-ABC" required />
+            </div>
+            <div class="form-field">
+              <label for="type">Tipo</label>
+              <select id="type" name="type">
+                <option value="Agregar matrícula">Agregar matrícula</option>
+                <option value="Revisar matrícula">Revisar matrícula</option>
+                <option value="Incidencia">Incidencia</option>
+                <option value="Cliente en espera">Cliente en espera</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="priority">Prioridad</label>
+              <select id="priority" name="priority">
+                <option value="Alta">Alta</option>
+                <option value="Media" selected>Media</option>
+                <option value="Baja">Baja</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="notes">Notas</label>
+              <input id="notes" name="notes" type="text" placeholder="Ej: Ticket perdido, revisar cámara 3" />
+            </div>
+            <button class="primary-button" type="submit">Agregar al tablero</button>
+          </form>
+        </section>
+
+        <section class="board">
+          <div class="column" data-column="todo">
+            <div class="column-header">
+              <h3>Por hacer</h3>
+              <span class="pill">4</span>
+            </div>
+            <div class="card-list" id="todo">
+              <article class="card">
+                <div class="card-title">Agregar matrícula - 8492 LZX</div>
+                <p class="card-meta">Prioridad alta · Acceso principal</p>
+                <div class="card-tags">
+                  <span class="tag high">Alta</span>
+                  <span class="tag">Matrículas</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-title">Revisar matrícula - 1130 KBR</div>
+                <p class="card-meta">Ticket perdido · Cámara 3</p>
+                <div class="card-tags">
+                  <span class="tag medium">Media</span>
+                  <span class="tag">Incidencia</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-title">Cliente en espera - Plaza 42</div>
+                <p class="card-meta">Necesita ayuda con pago</p>
+                <div class="card-tags">
+                  <span class="tag low">Baja</span>
+                  <span class="tag">Atención</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-title">Agregar matrícula - 6612 TUP</div>
+                <p class="card-meta">Acceso VIP</p>
+                <div class="card-tags">
+                  <span class="tag medium">Media</span>
+                  <span class="tag">Matrículas</span>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="column" data-column="in-progress">
+            <div class="column-header">
+              <h3>En progreso</h3>
+              <span class="pill">2</span>
+            </div>
+            <div class="card-list" id="in-progress">
+              <article class="card">
+                <div class="card-title">Revisar matrícula - 5049 HZM</div>
+                <p class="card-meta">Puerta norte · contacto guardia</p>
+                <div class="card-tags">
+                  <span class="tag high">Alta</span>
+                  <span class="tag">Revisión</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-title">Incidencia - Barrera 2</div>
+                <p class="card-meta">No baja al escanear ticket</p>
+                <div class="card-tags">
+                  <span class="tag medium">Media</span>
+                  <span class="tag">Mantenimiento</span>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="column" data-column="review">
+            <div class="column-header">
+              <h3>En revisión</h3>
+              <span class="pill">2</span>
+            </div>
+            <div class="card-list" id="review">
+              <article class="card">
+                <div class="card-title">Agregar matrícula - 9921 JHK</div>
+                <p class="card-meta">Confirmar con administración</p>
+                <div class="card-tags">
+                  <span class="tag medium">Media</span>
+                  <span class="tag">Administración</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-title">Revisar matrícula - 2220 MNP</div>
+                <p class="card-meta">Pago duplicado detectado</p>
+                <div class="card-tags">
+                  <span class="tag low">Baja</span>
+                  <span class="tag">Pago</span>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="column" data-column="done">
+            <div class="column-header">
+              <h3>Finalizado</h3>
+              <span class="pill">3</span>
+            </div>
+            <div class="card-list" id="done">
+              <article class="card">
+                <div class="card-title">Matrícula validada - 7834 RSL</div>
+                <p class="card-meta">Entrada principal · 09:10</p>
+                <div class="card-tags">
+                  <span class="tag">Completado</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-title">Incidencia resuelta - Barrera 1</div>
+                <p class="card-meta">Reinicio remoto</p>
+                <div class="card-tags">
+                  <span class="tag">Completado</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-title">Cliente atendido - Plaza 12</div>
+                <p class="card-meta">Pago con tarjeta</p>
+                <div class="card-tags">
+                  <span class="tag">Completado</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
