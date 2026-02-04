@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventario Contable</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Panel contable</p>
+        <h1>Control diario de caja y recaudación</h1>
+        <p class="subtitle">
+          Visualiza monedas, billetes y estado de caja por cajero con un diseño moderno y listo para
+          exportar.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="exportExcel">Exportar Excel</button>
+        <button class="btn btn-ghost" id="exportPdf">Exportar PDF</button>
+      </div>
+    </header>
+
+    <section class="filters">
+      <div class="filter-card">
+        <label for="filterDay">Filtrar por día</label>
+        <input type="date" id="filterDay" />
+      </div>
+      <div class="filter-card">
+        <label for="filterMonth">Filtrar por mes</label>
+        <select id="filterMonth"></select>
+      </div>
+      <div class="filter-card">
+        <label for="filterYear">Filtrar por año</label>
+        <select id="filterYear"></select>
+      </div>
+      <button class="btn btn-muted" id="clearFilters">Limpiar filtros</button>
+    </section>
+
+    <section class="summary" id="summary"></section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-header">
+          <h2>Recaudación día</h2>
+          <span class="badge">Banco · Monedas · Billetes</span>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Cajero</th>
+                <th>Banco</th>
+                <th>Monedas</th>
+                <th>Billetes</th>
+                <th>Cambio</th>
+              </tr>
+            </thead>
+            <tbody id="recaudacionBody"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <h2>Cargas de monedas</h2>
+          <span class="badge">0,05 · 0,20 · 0,50 · 2,00</span>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Cajero</th>
+                <th>0,05 €</th>
+                <th>0,20 €</th>
+                <th>0,50 €</th>
+                <th>2,00 €</th>
+                <th>Total €</th>
+              </tr>
+            </thead>
+            <tbody id="cargasBody"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <h2>Estado de caja</h2>
+          <span class="badge">Estado · Cambio C.F.</span>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Cajero</th>
+                <th>Estado caja</th>
+                <th>Cambio C.F.</th>
+              </tr>
+            </thead>
+            <tbody id="estadoBody"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <h2>Incidencias</h2>
+          <span class="badge">Notas diarias</span>
+        </div>
+        <div class="incidencias" id="incidencias"></div>
+      </article>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
